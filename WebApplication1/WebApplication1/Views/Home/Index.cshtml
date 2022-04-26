@@ -1,0 +1,27 @@
+﻿@model IEnumerable<WebApplication1.Models.Tender>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+table, th, td {
+  border: 2px solid black;
+  border-collapse: collapse;
+  padding: 20px;
+}
+</style>
+
+<div class="text-center">
+    <table>
+        <tr>
+            <th>Название тендера</th>
+            <th>Дата начала</th>
+            <th>Дата окончания</th>
+            <th>URL тендерной площадки</th>
+        </tr>
+        @foreach (var i in Model)
+    {
+        <tr><td>@i.TenderName</td><td>@(i.StartDate == DateTime.MinValue ? "" : i.StartDate)</td><td>@(i.EndDate == DateTime.MinValue ? "" : i.EndDate)</td><td>@i.TenderUrl</td></tr>
+    }
+    </table>
+</div>
